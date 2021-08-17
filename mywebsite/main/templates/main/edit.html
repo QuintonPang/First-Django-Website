@@ -1,0 +1,55 @@
+{% extends "main/base.html" %}
+
+
+
+{% block content %}
+
+{{list.name}}
+
+<form method="post">
+
+	{% csrf_token %}
+
+	<!-- post data will be {"c1":["checked"],"save":["save"],...}-->
+
+	<ul>
+{% for item in items %}
+		
+	
+	{% if item.completion == True%}
+
+	<li>
+	{{item.text}}
+	
+	<input type="checkbox" value="checked" name="c{{item.id}}" checked >
+
+	</li>
+	{% else %}
+
+	<li>
+	{{item.text}}
+	
+	<input type="checkbox" value="checked" name="c{{item.id}}">
+
+
+	</li>
+	{% endif %}
+{% endfor %}
+
+<br>
+<button type="submit" value="save" name="save">SAVE</button><br>
+	New Item: <input type="text"  name="newItem"><br>
+
+	<button type="submit" value="saveNewItem" name= "saveNewItem">SAVE NEW ITEM</button>
+
+
+
+	</ul>
+
+
+
+</form>
+
+{% endblock %}
+
+

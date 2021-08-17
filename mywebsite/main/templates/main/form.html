@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+
+{% block content%}
+
+<h1> FORM </h1>
+
+<form method="post" action="create">
+
+	<!-- p means list downwards, ul means show up little dots like list-->
+
+	<!-- security stuff -->
+	{% csrf_token %}
+	<!-- {{form.as_ul}}-->
+	{{form.as_p}}
+
+	<button type="submit" name="submit">CREATE</button>
+
+	
+
+</form>
+
+{% endblock%}

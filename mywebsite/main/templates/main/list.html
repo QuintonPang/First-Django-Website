@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+
+{%  block content %}
+
+	{{ list.name }}
+
+	<ul>
+	{% for item in list.item_set.all %}
+
+		{%if item.completion == False%}
+
+			<li>{{ item.text }}
+				-
+			{{ item.completion }}
+		
+			</li>
+		{%else%}
+			<h1>COMPLETED:</h1>
+
+			<li>{{item.text}}
+			</li>
+	</ul>	{% endif %}
+	{% endfor %}
+
+{%endblock%}
+
